@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: octopus_take_out
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:13306/octopus?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 123456
+
+
+  # 邮箱配置
+  mail:
+    host: smtp.qq.com  # 发送邮件的服务器地址
+    username: ********@qq.com # 开启 IMAP/SMTP服务 的qq邮箱的账号
+    password: **********  # 开启 IMAP/SMTP服务 获得的授权码,而不是qq邮箱的登录密码
+    port: 465
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+        #          开启debug以后，邮件发送过程的日志会在控制台上打印出来
+        debug: true
+
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
+
+octopus:
+  path: D:\img\
